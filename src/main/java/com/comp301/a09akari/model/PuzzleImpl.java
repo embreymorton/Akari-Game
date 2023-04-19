@@ -8,7 +8,7 @@ public class PuzzleImpl implements Puzzle{
 
     public PuzzleImpl(int[][] board){
         width = board.length;
-        height = board.length;
+        height = board[0].length;
         this.board = board.clone();
     }
 
@@ -39,7 +39,7 @@ public class PuzzleImpl implements Puzzle{
 
         if(!inBounds(r, c))
             throw new IndexOutOfBoundsException();
-        else if (getCellType(r, c) != CellType.WALL)
+        else if (getCellType(r, c) != CellType.CLUE)
             throw new IllegalArgumentException();
         else
             return getValue(r, c);
