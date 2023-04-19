@@ -87,10 +87,12 @@ public class ModelImpl implements Model {
       lampRow = lamp.getRow();
       lampCol = lamp.getColumn();
 
-      if (lampRow == r || lampCol == c) if (lampRow == r && lampCol == c) return false;
+      if (lampRow == r || lampCol == c) {
+        if (lampRow == r && lampCol == c) continue;
 
-      if (!wallInBetween(r, c, lampRow, lampCol)) {
-        return true;
+        if (!wallInBetween(r, c, lampRow, lampCol)) {
+          return true;
+        }
       }
     }
     return false;
@@ -161,10 +163,18 @@ public class ModelImpl implements Model {
     int value = activePuzzle.getClue(r, c);
     int numLamps = 0;
 
-    if (r - 1 >= 0) if (isLamp(r - 1, c)) numLamps++;
-    if (r + 1 <= activePuzzle.getWidth() - 1) if (isLamp(r + 1, c)) numLamps++;
-    if (c - 1 >= 0) if (isLamp(r, c - 1)) numLamps++;
-    if (c + 1 <= activePuzzle.getHeight() - 1) if (isLamp(r, c + 1)) numLamps++;
+    if (r - 1 >= 0) {
+      if (isCellType(r - 1, c, CellType.CORRIDOR) && isLamp(r - 1, c)) numLamps++;
+    }
+    if (r + 1 <= activePuzzle.getWidth() - 1) {
+      if (isCellType(r + 1, c, CellType.CORRIDOR) && isLamp(r + 1, c)) numLamps++;
+    }
+    if (c - 1 >= 0) {
+      if (isCellType(r, c - 1, CellType.CORRIDOR) && isLamp(r, c - 1)) numLamps++;
+    }
+    if (c + 1 <= activePuzzle.getHeight() - 1) {
+      if (isCellType(r, c + 1, CellType.CORRIDOR) && isLamp(r, c + 1)) numLamps++;
+    }
 
     return numLamps == value;
   }
@@ -188,7 +198,12 @@ public class ModelImpl implements Model {
     if (type != activePuzzle.getCellType(r, c)) throw new IllegalArgumentException();
   }
 
-  private boolean wallInBetween(int r1, int c1, int r2, int c2) {
+  private boolean isCellType(int r, int c, CellType type) {
+    if (type != activePuzzle.getCellType(r, c)) return false;
+    return true;
+  }
+
+  public boolean wallInBetween(int r1, int c1, int r2, int c2) {
     if (r1 == r2) {
       if (c2 < c1) {
         for (int i = c2; i < c1; i++) {

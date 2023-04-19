@@ -9,8 +9,9 @@ public class Main {
     Application.launch(AppLauncher.class);
 
     //    int[][] pzl = {
-    //            {6, 5},
-    //            {6, 6},
+    //      {6, 1, 6},
+    //      {6, 6, 6},
+    //      {6, 6, 6},
     //    };
     //
     //    Puzzle p0 = new PuzzleImpl(pzl);
@@ -21,10 +22,10 @@ public class Main {
     //    library.addPuzzle(p0);
     //
     //    ModelImpl model = new ModelImpl(library);
-    //    model.addLamp(1, 0);
-    //    System.out.println(model.isLampIllegal(1,0));
-    //    System.out.println(model.isSolved());
+    //    model.addLamp(0, 2);
+    //    model.addLamp(2, 0);
     //
-
+    //    System.out.println(model.isLampIllegal(2,0));
+    //    System.out.println(model.isSolved());
   }
 }
