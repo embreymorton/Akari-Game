@@ -90,7 +90,6 @@ public class ModelImpl implements Model {
       if (lampRow == r || lampCol == c) if (lampRow == r && lampCol == c) return false;
 
       if (!wallInBetween(r, c, lampRow, lampCol)) {
-        System.out.println("no wall");
         return true;
       }
     }
