@@ -190,7 +190,7 @@ public class ModelImpl implements Model {
   }
 
   private void checkInBounds(int r, int c) {
-    if (r >= activePuzzle.getWidth() || c >= activePuzzle.getHeight())
+    if (c >= activePuzzle.getWidth() || r >= activePuzzle.getHeight())
       throw new IndexOutOfBoundsException();
   }
 

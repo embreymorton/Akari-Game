@@ -40,7 +40,8 @@ public class PuzzleImpl implements Puzzle {
   }
 
   private boolean inBounds(int r, int c) {
-    if (r >= width || c >= height) return false;
+    if (c >= width || r >= height) return false;
+    else if (c < 0 || r < 0) return false;
     return true;
   }
 
