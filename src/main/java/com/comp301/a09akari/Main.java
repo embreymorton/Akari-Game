@@ -8,25 +8,27 @@ public class Main {
   public static void main(String[] args) {
     Application.launch(AppLauncher.class);
 
-    //        int[][] pzl = {
-    //          {6, 5, 6},
-    //          {5, 6, 6},
-    //          {6, 6, 6},
-    //        };
-    //
-    //        Puzzle p0 = new PuzzleImpl(pzl);
-    //        Puzzle p1 = new PuzzleImpl(SamplePuzzles.PUZZLE_01);
-    //        Puzzle p2 = new PuzzleImpl(SamplePuzzles.PUZZLE_05);
-    //
-    //        PuzzleLibrary library = new PuzzleLibraryImpl();
-    //        library.addPuzzle(p0);
-    //
-    //        ModelImpl model = new ModelImpl(library);
-    //        model.addLamp(0, 0);
-    //        model.addLamp(1, 1);
-    //        model.addLamp(0, 2);
-    //
-    //        System.out.println(model.isLampIllegal(0,2));
-    //        //System.out.println(model.isSolved());
+//            int[][] pzl = {
+//              {6, 6, 6},
+//              {6, 6, 6},
+//              {6, 5, 6},
+//              {6, 6, 6},
+//              {6, 6, 6},
+//            };
+//
+//            Puzzle p0 = new PuzzleImpl(pzl);
+//            Puzzle p1 = new PuzzleImpl(SamplePuzzles.PUZZLE_01);
+//            Puzzle p2 = new PuzzleImpl(SamplePuzzles.PUZZLE_05);
+//
+//            PuzzleLibrary library = new PuzzleLibraryImpl();
+//            library.addPuzzle(p0);
+//
+//            ModelImpl model = new ModelImpl(library);
+//            model.addLamp(0, 0);
+//            model.addLamp(1, 1);
+//            model.addLamp(3, 1);
+//            model.addLamp(4, 2);
+//
+//            System.out.println(model.isSolved());
   }
 }
