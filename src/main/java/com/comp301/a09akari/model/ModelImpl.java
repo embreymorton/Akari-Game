@@ -64,7 +64,7 @@ public class ModelImpl implements Model {
 
   @Override
   public boolean isLamp(int r, int c) {
-    checkInBounds(r, c);
+    //checkInBounds(r, c);
     checkCellType(r, c, CellType.CORRIDOR);
 
     for (Lamp lamp : lamps) {
