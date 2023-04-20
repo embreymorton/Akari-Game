@@ -211,7 +211,7 @@ public class ModelImpl implements Model {
             return true;
           }
         }
-      } else if (c2 > r1) {
+      } else if (c2 > c1) {
         for (int i = c1; i < c2; i++) {
           if (activePuzzle.getCellType(r1, i) != CellType.CORRIDOR) {
             return true;
