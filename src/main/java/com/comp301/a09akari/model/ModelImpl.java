@@ -133,8 +133,8 @@ public class ModelImpl implements Model {
     int height = activePuzzle.getHeight();
 
     CellType type;
-    for (int r = 0; r < width; r++) {
-      for (int c = 0; c < height; c++) {
+    for (int r = 0; r < height; r++) {
+      for (int c = 0; c < width; c++) {
         type = activePuzzle.getCellType(r, c);
         if (type == CellType.CORRIDOR) {
           if (!isLit(r, c)) return false;
