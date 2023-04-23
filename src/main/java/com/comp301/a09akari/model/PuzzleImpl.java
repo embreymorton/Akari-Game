@@ -45,8 +45,6 @@ public class PuzzleImpl implements Puzzle {
   }
 
   private int getValue(int r, int c) {
-    if(r > 0) throw new ArithmeticException();
-
     return board[r][c];
   }
 }
