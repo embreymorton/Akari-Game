@@ -24,8 +24,7 @@ public class ModelImpl implements Model {
   @Override
   public void addLamp(int r, int c) {
     checkInBounds(r, c);
-    if(!isCellType(r, c, CellType.CORRIDOR)) throw new IllegalArgumentException();
-    //checkCellType(r, c, CellType.CORRIDOR);
+    checkCellType(r, c, CellType.CORRIDOR);
 
     if (!isLamp(r, c)) lamps.add(new Lamp(r, c));
     updateObservers();
@@ -34,8 +33,7 @@ public class ModelImpl implements Model {
   @Override
   public void removeLamp(int r, int c) {
     checkInBounds(r, c);
-    //checkCellType(r, c, CellType.CORRIDOR);
-    if(!isCellType(r, c, CellType.CORRIDOR)) throw new IllegalArgumentException();
+    checkCellType(r, c, CellType.CORRIDOR);
 
     if (isLamp(r, c)) lamps.remove(currentLamp);
     updateObservers();
@@ -47,8 +45,7 @@ public class ModelImpl implements Model {
     if (activePuzzle.getCellType(r, c) == CellType.WALL
         || activePuzzle.getCellType(r, c) == CellType.CLUE) return false;
 
-    //checkCellType(r, c, CellType.CORRIDOR);
-    if(!isCellType(r, c, CellType.CORRIDOR)) throw new IllegalArgumentException();
+    checkCellType(r, c, CellType.CORRIDOR);
     if (isLamp(r, c)) return true;
 
     int lampRow;
@@ -67,9 +64,8 @@ public class ModelImpl implements Model {
 
   @Override
   public boolean isLamp(int r, int c) {
-    //checkInBounds(r, c);
-    //checkCellType(r, c, CellType.CORRIDOR);
-    if(!isCellType(r, c, CellType.CORRIDOR)) throw new IllegalArgumentException();
+    checkInBounds(r, c);
+    checkCellType(r, c, CellType.CORRIDOR);
 
     for (Lamp lamp : lamps) {
       if ((lamp.getRow() == r) && (lamp.getColumn() == c)) {
@@ -82,7 +78,7 @@ public class ModelImpl implements Model {
 
   @Override
   public boolean isLampIllegal(int r, int c) {
-    //checkInBounds(r, c);
+    checkInBounds(r, c);
     if (!isLamp(r, c)) throw new IllegalArgumentException();
 
     int lampRow;
@@ -116,7 +112,6 @@ public class ModelImpl implements Model {
   public void setActivePuzzleIndex(int index) {
     if (index >= library.size() || index < 0) throw new IndexOutOfBoundsException();
     this.index = index;
-    activePuzzle = library.getPuzzle(index);
     updateObservers();
   }
 
@@ -162,8 +157,7 @@ public class ModelImpl implements Model {
   @Override
   public boolean isClueSatisfied(int r, int c) {
     checkInBounds(r, c);
-    //checkCellType(r, c, CellType.CLUE);
-    if(!isCellType(r, c, CellType.CLUE)) throw new IllegalArgumentException();
+    checkCellType(r, c, CellType.CLUE);
 
     int value = activePuzzle.getClue(r, c);
     int numLamps = 0;
@@ -196,13 +190,13 @@ public class ModelImpl implements Model {
 
   public void checkInBounds(int r, int c) {
     if (c >= activePuzzle.getWidth() || r >= activePuzzle.getHeight())
-      throw new IllegalArgumentException();
+      throw new IndexOutOfBoundsException();
     if (c < 0 || r < 0)
       throw new IndexOutOfBoundsException();
   }
 
   private void checkCellType(int r, int c, CellType type) {
-    //checkInBounds(r, c);
+    checkInBounds(r, c);
     if (type != activePuzzle.getCellType(r, c)) throw new IllegalArgumentException();
   }
 
