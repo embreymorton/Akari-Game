@@ -64,7 +64,7 @@ public class ModelImpl implements Model {
 
   @Override
   public boolean isLamp(int r, int c) {
-    checkInBounds(r, c);
+    //checkInBounds(r, c);
     checkCellType(r, c, CellType.CORRIDOR);
 
     for (Lamp lamp : lamps) {
@@ -78,7 +78,7 @@ public class ModelImpl implements Model {
 
   @Override
   public boolean isLampIllegal(int r, int c) {
-    checkInBounds(r, c);
+    //checkInBounds(r, c);
     if (!isLamp(r, c)) throw new IllegalArgumentException();
 
     int lampRow;
@@ -197,7 +197,7 @@ public class ModelImpl implements Model {
   }
 
   private void checkCellType(int r, int c, CellType type) {
-    checkInBounds(r, c);
+    //checkInBounds(r, c);
     if (type != activePuzzle.getCellType(r, c)) throw new IllegalArgumentException();
   }
 
