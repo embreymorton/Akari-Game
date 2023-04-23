@@ -24,7 +24,8 @@ public class ModelImpl implements Model {
   @Override
   public void addLamp(int r, int c) {
     checkInBounds(r, c);
-    checkCellType(r, c, CellType.CORRIDOR);
+    if(!isCellType(r, c, CellType.CORRIDOR)) throw new IllegalArgumentException();
+    //checkCellType(r, c, CellType.CORRIDOR);
 
     if (!isLamp(r, c)) lamps.add(new Lamp(r, c));
     updateObservers();
@@ -33,7 +34,8 @@ public class ModelImpl implements Model {
   @Override
   public void removeLamp(int r, int c) {
     checkInBounds(r, c);
-    checkCellType(r, c, CellType.CORRIDOR);
+    //checkCellType(r, c, CellType.CORRIDOR);
+    if(!isCellType(r, c, CellType.CORRIDOR)) throw new IllegalArgumentException();
 
     if (isLamp(r, c)) lamps.remove(currentLamp);
     updateObservers();
@@ -45,7 +47,8 @@ public class ModelImpl implements Model {
     if (activePuzzle.getCellType(r, c) == CellType.WALL
         || activePuzzle.getCellType(r, c) == CellType.CLUE) return false;
 
-    checkCellType(r, c, CellType.CORRIDOR);
+    //checkCellType(r, c, CellType.CORRIDOR);
+    if(!isCellType(r, c, CellType.CORRIDOR)) throw new IllegalArgumentException();
     if (isLamp(r, c)) return true;
 
     int lampRow;
@@ -65,7 +68,8 @@ public class ModelImpl implements Model {
   @Override
   public boolean isLamp(int r, int c) {
     //checkInBounds(r, c);
-    checkCellType(r, c, CellType.CORRIDOR);
+    //checkCellType(r, c, CellType.CORRIDOR);
+    if(!isCellType(r, c, CellType.CORRIDOR)) throw new IllegalArgumentException();
 
     for (Lamp lamp : lamps) {
       if ((lamp.getRow() == r) && (lamp.getColumn() == c)) {
@@ -158,7 +162,8 @@ public class ModelImpl implements Model {
   @Override
   public boolean isClueSatisfied(int r, int c) {
     checkInBounds(r, c);
-    checkCellType(r, c, CellType.CLUE);
+    //checkCellType(r, c, CellType.CLUE);
+    if(!isCellType(r, c, CellType.CLUE)) throw new IllegalArgumentException();
 
     int value = activePuzzle.getClue(r, c);
     int numLamps = 0;
