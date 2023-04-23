@@ -196,7 +196,7 @@ public class ModelImpl implements Model {
 
   public void checkInBounds(int r, int c) {
     if (c >= activePuzzle.getWidth() || r >= activePuzzle.getHeight())
-      throw new IndexOutOfBoundsException();
+      throw new IllegalArgumentException();
     if (c < 0 || r < 0)
       throw new IndexOutOfBoundsException();
   }
