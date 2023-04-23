@@ -135,7 +135,6 @@ public class ModelImpl implements Model {
     CellType type;
     for (int r = 0; r < height; r++) {
       for (int c = 0; c < width; c++) {
-        // System.out.println("Testing [" + r + "][" + c + "]");
         type = activePuzzle.getCellType(r, c);
         if (type == CellType.CORRIDOR) {
           if (!isLit(r, c)) return false;
@@ -150,7 +149,7 @@ public class ModelImpl implements Model {
     for (Lamp lamp : lamps) {
       lampRow = lamp.getRow();
       lampCol = lamp.getColumn();
-
+      checkInBounds(lampRow, lampCol);
       if (isLampIllegal(lampRow, lampCol)) return false;
     }
     return true;
@@ -192,7 +191,7 @@ public class ModelImpl implements Model {
 
   public void checkInBounds(int r, int c) {
     if (c >= activePuzzle.getWidth() || r >= activePuzzle.getHeight())
-      throw new IndexOutOfBoundsException("either" + r + " >= " + activePuzzle.getHeight() + " or " + c + " >= " + activePuzzle.getWidth());
+      throw new IndexOutOfBoundsException("either " + r + " >= " + activePuzzle.getHeight() + " or " + c + " >= " + activePuzzle.getWidth());
     if (c < 0 || r < 0) throw new IndexOutOfBoundsException();
   }
 
