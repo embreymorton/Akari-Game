@@ -114,7 +114,6 @@ public class ModelImpl implements Model {
     this.index = index;
     activePuzzle = library.getPuzzle(index);
     resetPuzzle();
-    updateObservers();
   }
 
   @Override
@@ -192,7 +191,7 @@ public class ModelImpl implements Model {
 
   public void checkInBounds(int r, int c) {
     if (c >= activePuzzle.getWidth() || r >= activePuzzle.getHeight())
-      throw new IndexOutOfBoundsException("either " + r + " >= " + activePuzzle.getHeight() + " or " + c + " >= " + activePuzzle.getWidth());
+      throw new IndexOutOfBoundsException();
     if (c < 0 || r < 0) throw new IndexOutOfBoundsException();
   }
 
