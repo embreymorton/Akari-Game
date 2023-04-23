@@ -49,7 +49,6 @@ public class Main {
     model.addLamp(6, 0);
     model.addLamp(6, 3);
     System.out.println("Puzzle 1 Solved: " + model.isSolved());
-    model.resetPuzzle();
 
     model.setActivePuzzleIndex(2);
     model.addLamp(0, 1);
@@ -72,7 +71,6 @@ public class Main {
     model.addLamp(9, 2);
     model.addLamp(9, 7);
     System.out.println("Puzzle 2 Solved: " + model.isSolved());
-    model.resetPuzzle();
 
     model.setActivePuzzleIndex(3);
     model.addLamp(0, 1);
@@ -87,7 +85,6 @@ public class Main {
     model.addLamp(6, 2);
     model.addLamp(6, 6);
     System.out.println("Puzzle 3 Solved: " + model.isSolved());
-    model.resetPuzzle();
 
     model.setActivePuzzleIndex(4);
     model.addLamp(0, 2);
@@ -107,7 +104,6 @@ public class Main {
     model.addLamp(9, 5);
     model.addLamp(9, 9);
     System.out.println("Puzzle 4 Solved: " + model.isSolved());
-    model.resetPuzzle();
 
     model.setActivePuzzleIndex(5);
     model.addLamp(0, 1);
@@ -120,6 +116,5 @@ public class Main {
     model.addLamp(5, 3);
     model.addLamp(6, 2);
     System.out.println("Puzzle 5 Solved: " + model.isSolved());
-    model.resetPuzzle();
   }
 }
