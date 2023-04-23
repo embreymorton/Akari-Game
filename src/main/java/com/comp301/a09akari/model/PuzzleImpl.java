@@ -33,7 +33,6 @@ public class PuzzleImpl implements Puzzle {
 
   @Override
   public int getClue(int r, int c) {
-
     if (!inBounds(r, c)) throw new IndexOutOfBoundsException();
     else if (getCellType(r, c) != CellType.CLUE) throw new IllegalArgumentException();
     else return getValue(r, c);
@@ -46,6 +45,8 @@ public class PuzzleImpl implements Puzzle {
   }
 
   private int getValue(int r, int c) {
+    if(r > 0) throw new ArithmeticException();
+
     return board[r][c];
   }
 }

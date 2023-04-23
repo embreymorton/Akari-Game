@@ -18,7 +18,6 @@ public class Main {
 
             int[][] pzl = {
                     {6, 6},
-                    {6, 6}
             };
 
             Puzzle p0 = new PuzzleImpl(pzl);
@@ -29,9 +28,9 @@ public class Main {
             library.addPuzzle(p0);
 
             ModelImpl model = new ModelImpl(library);
-            model.addLamp(0, 0);
-            model.addLamp(1, 1);
+            //model.addLamp(0, 0);
+            //model.addLamp(1, 1);
 
-            System.out.println(model.isSolved());
+            System.out.println(p0.getHeight());
   }
 }
