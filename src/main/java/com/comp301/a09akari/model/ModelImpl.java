@@ -78,7 +78,7 @@ public class ModelImpl implements Model {
 
   @Override
   public boolean isLampIllegal(int r, int c) {
-    checkInBounds(r, c);
+    //checkInBounds(r, c);
     if (!isLamp(r, c)) throw new IllegalArgumentException();
 
     int lampRow;
