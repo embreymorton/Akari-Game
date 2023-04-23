@@ -135,6 +135,7 @@ public class ModelImpl implements Model {
     CellType type;
     for (int r = 0; r < height; r++) {
       for (int c = 0; c < width; c++) {
+        // System.out.println("Testing [" + r + "][" + c + "]");
         type = activePuzzle.getCellType(r, c);
         if (type == CellType.CORRIDOR) {
           if (!isLit(r, c)) return false;
@@ -166,13 +167,13 @@ public class ModelImpl implements Model {
     if (r - 1 >= 0) {
       if (isCellType(r - 1, c, CellType.CORRIDOR) && isLamp(r - 1, c)) numLamps++;
     }
-    if (r + 1 <= activePuzzle.getWidth() - 1) {
+    if (r + 1 <= activePuzzle.getHeight() - 1) {
       if (isCellType(r + 1, c, CellType.CORRIDOR) && isLamp(r + 1, c)) numLamps++;
     }
     if (c - 1 >= 0) {
       if (isCellType(r, c - 1, CellType.CORRIDOR) && isLamp(r, c - 1)) numLamps++;
     }
-    if (c + 1 <= activePuzzle.getHeight() - 1) {
+    if (c + 1 <= activePuzzle.getWidth() - 1) {
       if (isCellType(r, c + 1, CellType.CORRIDOR) && isLamp(r, c + 1)) numLamps++;
     }
 
@@ -192,8 +193,7 @@ public class ModelImpl implements Model {
   public void checkInBounds(int r, int c) {
     if (c >= activePuzzle.getWidth() || r >= activePuzzle.getHeight())
       throw new IndexOutOfBoundsException();
-    if (c < 0 || r < 0)
-      throw new IndexOutOfBoundsException();
+    if (c < 0 || r < 0) throw new IndexOutOfBoundsException();
   }
 
   private void checkCellType(int r, int c, CellType type) {
