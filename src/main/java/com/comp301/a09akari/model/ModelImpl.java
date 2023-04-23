@@ -192,7 +192,7 @@ public class ModelImpl implements Model {
 
   public void checkInBounds(int r, int c) {
     if (c >= activePuzzle.getWidth() || r >= activePuzzle.getHeight())
-      throw new IllegalArgumentException();
+      throw new IndexOutOfBoundsException("either" + r + ">= " + activePuzzle.getHeight() + " or " + c + " >= " + activePuzzle.getWidth());
     if (c < 0 || r < 0) throw new IndexOutOfBoundsException();
   }
 
