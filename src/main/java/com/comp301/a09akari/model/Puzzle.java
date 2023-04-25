@@ -1,7 +1,5 @@
 package com.comp301.a09akari.model;
 
-import java.util.List;
-
 public interface Puzzle {
   /** Getter method for the width of the puzzle (i.e. the number of columns it has) */
   int getWidth();
@@ -21,12 +19,4 @@ public interface Puzzle {
    * cell is not type CLUE
    */
   int getClue(int r, int c);
-
-  void addLamp(Lamp p);
-
-  void removeLamp(Lamp p);
-
-  void clearLamps();
-
-  List<Lamp> getLamps();
 }
