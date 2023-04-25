@@ -37,7 +37,6 @@ public class PuzzleView implements FXComponent {
     Image illegalBulb = new Image("illegal-light-bulb.png");
 
     Button button;
-    Rectangle rectangle;
     for (int r = 0; r < rows; r++) {
       for (int c = 0; c < columns; c++) {
         if (activePuzzle.getCellType(r, c) == CellType.CLUE) {
