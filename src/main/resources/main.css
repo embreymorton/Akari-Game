@@ -5,3 +5,53 @@
  * JavaFX start() method:
  *   scene.getStylesheets().add("main.css");
  */
+
+ .wall-button {
+   -fx-base: black;
+   -fx-background-radius: 0;
+ }
+
+ .clue-button {
+     -fx-base: red;
+     -fx-font: 22 monaco;
+     -fx-text-fill: white;
+     -fx-focus-color: white;
+     -fx-background-radius: 0;
+ }
+
+ .solved-clue-button {
+    -fx-base: black;
+    -fx-font: 22 monaco;
+    -fx-text-fill: white;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-background-radius: 0;
+  }
+
+ .corridor-button {
+    -fx-base: white;
+    -fx-focus-color: white;
+    -fx-faint-focus-color: transparent;
+    -fx-background-radius: 0;
+ }
+
+ .lit-corridor-button {
+     -fx-base: #fff83e;
+     -fx-focus-color: white;
+     -fx-faint-focus-color: transparent;
+     -fx-background-radius: 0;
+  }
+
+ .success-label {
+    -fx-font: 50 monaco;
+ }
+
+ .control-button {
+     -fx-font: 20 monaco;
+     -fx-focus-color: grey;
+     -fx-faint-focus-color: transparent;
+  }
+
+ .puzzle-number {
+       -fx-font: 20 monaco;
+  }

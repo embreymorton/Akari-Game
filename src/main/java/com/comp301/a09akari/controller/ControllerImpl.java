@@ -2,6 +2,7 @@ package com.comp301.a09akari.controller;
 
 import com.comp301.a09akari.model.CellType;
 import com.comp301.a09akari.model.Model;
+import com.comp301.a09akari.model.ModelObserver;
 import com.comp301.a09akari.model.Puzzle;
 
 public class ControllerImpl implements AlternateMvcController {
@@ -15,23 +16,20 @@ public class ControllerImpl implements AlternateMvcController {
   @Override
   public void clickNextPuzzle() {
     if (model.getActivePuzzleIndex() + 1 < model.getPuzzleLibrarySize()) {
-      model.resetPuzzle();
       model.setActivePuzzleIndex(model.getActivePuzzleIndex() + 1);
-    }
+    } else model.setActivePuzzleIndex(0);
   }
 
   @Override
   public void clickPrevPuzzle() {
     if (model.getActivePuzzleIndex() - 1 >= 0) {
-      model.resetPuzzle();
       model.setActivePuzzleIndex(model.getActivePuzzleIndex() - 1);
-    }
+    } else model.setActivePuzzleIndex(model.getPuzzleLibrarySize() - 1);
   }
 
   @Override
   public void clickRandPuzzle() {
-    model.resetPuzzle();
-    int randIndex = (int) (Math.random() * model.getPuzzleLibrarySize() - 1) + 1;
+    int randIndex = (int) (Math.random() * model.getPuzzleLibrarySize());
     model.setActivePuzzleIndex(randIndex);
   }
 
@@ -42,7 +40,6 @@ public class ControllerImpl implements AlternateMvcController {
 
   @Override
   public void clickCell(int r, int c) {
-
     if (model.getActivePuzzle().getCellType(r, c) == CellType.CORRIDOR) {
       if (model.isLamp(r, c)) model.removeLamp(r, c);
       else model.addLamp(r, c);
@@ -72,5 +69,25 @@ public class ControllerImpl implements AlternateMvcController {
   @Override
   public Puzzle getActivePuzzle() {
     return model.getActivePuzzle();
+  }
+
+  public boolean isLampIllegal(int r, int c) {
+    return model.isLampIllegal(r, c);
+  }
+
+  public void addModelObserver(ModelObserver o) {
+    model.addObserver(o);
+  }
+
+  public void removeModelObserver(ModelObserver o) {
+    model.removeObserver(o);
+  }
+
+  public int getActivePuzzleIndex() {
+    return model.getActivePuzzleIndex();
+  }
+
+  public int getPuzzleLibrarySize() {
+    return model.getPuzzleLibrarySize();
   }
 }
