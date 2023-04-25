@@ -43,7 +43,7 @@ public class ModelImpl implements Model {
   public boolean isLit(int r, int c) {
     checkInBounds(r, c);
     if (activePuzzle.getCellType(r, c) == CellType.WALL
-            || activePuzzle.getCellType(r, c) == CellType.CLUE) return false;
+        || activePuzzle.getCellType(r, c) == CellType.CLUE) return false;
 
     checkCellType(r, c, CellType.CORRIDOR);
     if (isLamp(r, c)) return true;
@@ -245,4 +245,3 @@ public class ModelImpl implements Model {
     }
   }
 }
-
