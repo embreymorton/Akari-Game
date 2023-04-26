@@ -31,7 +31,7 @@ public class ControllerImpl implements AlternateMvcController {
   public void clickRandPuzzle() {
     int currentIndex = model.getActivePuzzleIndex();
     int randIndex = (int) (Math.random() * model.getPuzzleLibrarySize());
-    while(randIndex == currentIndex){
+    while (randIndex == currentIndex) {
       randIndex = (int) (Math.random() * model.getPuzzleLibrarySize());
     }
     model.setActivePuzzleIndex(randIndex);
