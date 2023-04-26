@@ -197,7 +197,7 @@ public class ModelImpl implements Model {
     observers.remove(observer);
   }
 
-  public void checkInBounds(int r, int c) {
+  private void checkInBounds(int r, int c) {
     if (c >= activePuzzle.getWidth() || r >= activePuzzle.getHeight())
       throw new IndexOutOfBoundsException();
     if (c < 0 || r < 0) throw new IndexOutOfBoundsException();
@@ -214,7 +214,7 @@ public class ModelImpl implements Model {
     return true;
   }
 
-  public boolean wallInBetween(int r1, int c1, int r2, int c2) {
+  private boolean wallInBetween(int r1, int c1, int r2, int c2) {
     if (r1 == r2) {
       if (c2 < c1) {
         for (int i = c2; i < c1; i++) {
