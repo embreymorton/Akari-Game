@@ -6,7 +6,8 @@ import java.util.List;
 public class ModelImpl implements Model {
 
   private PuzzleLibrary library;
-  private List<Lamp> lamps;
+  private List<List<Lamp>> lampList;
+  private List<Lamp> currentLamps;
   private Puzzle activePuzzle;
   private int index;
   private Lamp currentLamp;
@@ -14,11 +15,17 @@ public class ModelImpl implements Model {
 
   public ModelImpl(PuzzleLibrary library) {
     this.library = library;
-    lamps = new ArrayList<>();
     observers = new ArrayList<>();
     index = 0;
     activePuzzle = library.getPuzzle(index);
+
     currentLamp = null;
+    lampList = new ArrayList<>();
+
+    for (int i = 0; i < library.size(); i++) {
+      lampList.add(new ArrayList<>());
+    }
+    currentLamps = lampList.get(0);
   }
 
   @Override
@@ -26,7 +33,7 @@ public class ModelImpl implements Model {
     checkInBounds(r, c);
     checkCellType(r, c, CellType.CORRIDOR);
 
-    if (!isLamp(r, c)) lamps.add(new Lamp(r, c));
+    if (!isLamp(r, c)) currentLamps.add(new Lamp(r, c));
     updateObservers();
   }
 
@@ -35,7 +42,7 @@ public class ModelImpl implements Model {
     checkInBounds(r, c);
     checkCellType(r, c, CellType.CORRIDOR);
 
-    if (isLamp(r, c)) lamps.remove(currentLamp);
+    if (isLamp(r, c)) currentLamps.remove(currentLamp);
     updateObservers();
   }
 
@@ -50,7 +57,7 @@ public class ModelImpl implements Model {
 
     int lampRow;
     int lampCol;
-    for (Lamp lamp : lamps) {
+    for (Lamp lamp : currentLamps) {
       lampRow = lamp.getRow();
       lampCol = lamp.getColumn();
 
@@ -67,7 +74,7 @@ public class ModelImpl implements Model {
     checkInBounds(r, c);
     checkCellType(r, c, CellType.CORRIDOR);
 
-    for (Lamp lamp : lamps) {
+    for (Lamp lamp : currentLamps) {
       if ((lamp.getRow() == r) && (lamp.getColumn() == c)) {
         currentLamp = lamp;
         return true;
@@ -83,7 +90,7 @@ public class ModelImpl implements Model {
 
     int lampRow;
     int lampCol;
-    for (Lamp lamp : lamps) {
+    for (Lamp lamp : currentLamps) {
       lampRow = lamp.getRow();
       lampCol = lamp.getColumn();
 
@@ -113,7 +120,8 @@ public class ModelImpl implements Model {
     if (index >= library.size() || index < 0) throw new IndexOutOfBoundsException();
     this.index = index;
     activePuzzle = library.getPuzzle(index);
-    resetPuzzle();
+    currentLamps = lampList.get(index);
+    updateObservers();
   }
 
   @Override
@@ -123,7 +131,7 @@ public class ModelImpl implements Model {
 
   @Override
   public void resetPuzzle() {
-    lamps.clear();
+    currentLamps.clear();
     updateObservers();
   }
 
@@ -146,7 +154,7 @@ public class ModelImpl implements Model {
 
     int lampRow;
     int lampCol;
-    for (Lamp lamp : lamps) {
+    for (Lamp lamp : currentLamps) {
       lampRow = lamp.getRow();
       lampCol = lamp.getColumn();
       checkInBounds(lampRow, lampCol);
