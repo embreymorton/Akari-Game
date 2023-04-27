@@ -1,18 +1,14 @@
 package com.comp301.a09akari;
 
-import com.comp301.a09akari.model.*;
 import com.comp301.a09akari.view.AppLauncher;
 import javafx.application.Application;
 
 public class Main {
   public static void main(String[] args) {
     Application.launch(AppLauncher.class);
+  }
+}
 
-    //        int[][] pzl = {
-    //          {6, 6},
-    //        };
-    //
-    //        Puzzle p0 = new PuzzleImpl(pzl);
     //        Puzzle p1 = new PuzzleImpl(SamplePuzzles.PUZZLE_01);
     //        Puzzle p2 = new PuzzleImpl(SamplePuzzles.PUZZLE_02);
     //        Puzzle p3 = new PuzzleImpl(SamplePuzzles.PUZZLE_03);
@@ -109,5 +105,3 @@ public class Main {
     //    model.addLamp(5, 3);
     //    model.addLamp(6, 2);
     //    System.out.println("Puzzle 5 Solved: " + model.isSolved());
-  }
-}

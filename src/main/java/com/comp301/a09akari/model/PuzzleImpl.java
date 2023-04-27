@@ -1,8 +1,5 @@
 package com.comp301.a09akari.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class PuzzleImpl implements Puzzle {
 
   private int width;
