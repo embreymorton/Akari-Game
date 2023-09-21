@@ -1,10 +1,8 @@
-package com.comp301.a09akari.view;
+package akari.view;
 
-import com.comp301.a09akari.controller.AlternateMvcController;
-import com.comp301.a09akari.controller.ControllerImpl;
-import com.comp301.a09akari.model.Model;
-import com.comp301.a09akari.model.ModelObserver;
-import javafx.geometry.Pos;
+import akari.model.Model;
+import akari.model.ModelObserver;
+import akari.controller.ControllerImpl;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.*;

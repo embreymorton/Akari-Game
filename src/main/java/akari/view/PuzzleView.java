@@ -1,19 +1,16 @@
-package com.comp301.a09akari.view;
+package akari.view;
 
-import com.comp301.a09akari.controller.ControllerImpl;
-import com.comp301.a09akari.model.CellType;
-import com.comp301.a09akari.model.Puzzle;
+import akari.model.CellType;
+import akari.model.Puzzle;
+import akari.controller.ControllerImpl;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.shape.Rectangle;
 
 public class PuzzleView implements FXComponent {
   private ControllerImpl controller;

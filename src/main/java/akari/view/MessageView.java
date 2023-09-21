@@ -1,6 +1,6 @@
-package com.comp301.a09akari.view;
+package akari.view;
 
-import com.comp301.a09akari.controller.ControllerImpl;
+import akari.controller.ControllerImpl;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;

@@ -1,8 +1,8 @@
-package com.comp301.a09akari.view;
+package akari.view;
 
-import com.comp301.a09akari.SamplePuzzles;
-import com.comp301.a09akari.controller.ControllerImpl;
-import com.comp301.a09akari.model.*;
+import akari.SamplePuzzles;
+import akari.model.*;
+import akari.controller.ControllerImpl;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

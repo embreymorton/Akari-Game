@@ -1,4 +1,4 @@
-package com.comp301.a09akari.view;
+package akari.view;
 
 import javafx.scene.Parent;
 

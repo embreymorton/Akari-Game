@@ -1,7 +1,6 @@
-package com.comp301.a09akari.view;
+package akari.view;
 
-import com.comp301.a09akari.controller.ControllerImpl;
-import com.comp301.a09akari.model.Puzzle;
+import akari.controller.ControllerImpl;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;

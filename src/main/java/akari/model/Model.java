@@ -1,4 +1,4 @@
-package com.comp301.a09akari.model;
+package akari.model;
 
 public interface Model {
   /**

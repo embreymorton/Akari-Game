@@ -1,9 +1,9 @@
-package com.comp301.a09akari.controller;
+package akari.controller;
 
-import com.comp301.a09akari.model.CellType;
-import com.comp301.a09akari.model.Model;
-import com.comp301.a09akari.model.ModelObserver;
-import com.comp301.a09akari.model.Puzzle;
+import akari.model.CellType;
+import akari.model.Model;
+import akari.model.ModelObserver;
+import akari.model.Puzzle;
 
 public class ControllerImpl implements AlternateMvcController {
 
